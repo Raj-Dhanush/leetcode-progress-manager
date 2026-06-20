@@ -88,7 +88,7 @@ def update_revision_count():
 while True:
 
     print("\n===== LeetCode Progress Manager =====")
-    print("1. Add Problem")
+    print("1. Create Problem")
     print("2. View Problems")
     print("3. Search Problem")
     print("4. Update Revision Count")
