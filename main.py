@@ -68,13 +68,31 @@ def search_problem():
     except:
         print("No problems found")
 
+def update_revision_count():
+    search_name = input("Enter problem name: ")
+    try:
+        with open("data/problems.json", "r") as file:
+            data = json.load(file)
+        for problem in data:
+            if problem["name"].lower() == search_name.lower():
+                problem["revision_count"] += 1
+                with open("data/problems.json","w") as file:
+                    json.dump(data, file, indent = 4)
+                
+                print("Revision Count updated")
+                return
+        print("Problem not found")
+    except:
+        print("No problems found")
+
 while True:
 
     print("\n===== LeetCode Progress Manager =====")
     print("1. Add Problem")
     print("2. View Problems")
     print("3. Search Problem")
-    print("4. Exit")
+    print("4. Update Revision Count")
+    print("5. Exit")
 
     choice = input("Enter Choice: ")
 
@@ -88,6 +106,8 @@ while True:
         search_problem()
 
     elif choice == "4":
+        update_revision_count()
+    elif choice == "5":
         break
     else:
         print("Invalid Choice")
