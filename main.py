@@ -49,12 +49,32 @@ def view_problems():
     except:
         print("No problems found.")
 
+def search_problem():
+    search_word = input("Enter the problem name to be searched: ")
+    try:
+        with open("data/problems.json", "r") as file:
+            data = json.load(file)
+        for problem in data:
+            if problem["name"].lower() == search_word.lower():
+                print("\nProblem Found\n")
+
+                print(f"Name: {problem['name']}")
+                print(f"Difficulty: {problem['difficulty']}")
+                print(f"Topic: {problem['topic']}")
+                print(f"Revisions: {problem['revision_count']}")
+
+                return
+        print("Problem not found")
+    except:
+        print("No problems found")
+
 while True:
 
     print("\n===== LeetCode Progress Manager =====")
     print("1. Add Problem")
     print("2. View Problems")
-    print("3. Exit")
+    print("3. Search Problem")
+    print("4. Exit")
 
     choice = input("Enter Choice: ")
 
@@ -65,7 +85,10 @@ while True:
         view_problems()
 
     elif choice == "3":
-        break
+        search_problem()
 
+    elif choice == "4":
+        break
     else:
         print("Invalid Choice")
+

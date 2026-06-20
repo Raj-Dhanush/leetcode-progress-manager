@@ -4,5 +4,17 @@
         "difficulty": "Easy",
         "topic": "Array",
         "revision_count": 0
+    },
+    {
+        "name": "Longest Substring Without Repeating Characters",
+        "difficulty": "Medium",
+        "topic": "Sliding Window",
+        "revision_count": 0
+    },
+    {
+        "name": "Word Ladder",
+        "difficulty": "Hard",
+        "topic": "Graph",
+        "revision_count": 0
     }
 ]
